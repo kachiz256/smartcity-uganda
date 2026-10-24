@@ -12,11 +12,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # --------------------------------------------------
 
 DEBUG = os.environ.get("DEBUG", "True").strip().lower() == "true"
-
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-local-development-key-change-before-deployment",
 )
+
+if not DEBUG and SECRET_KEY.startswith("django-insecure-"):
+    raise ValueError(
+        "Set a secure DJANGO_SECRET_KEY environment variable."
+    )
 
 ALLOWED_HOSTS = [
     host.strip()
@@ -27,6 +31,13 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+RENDER_EXTERNAL_HOSTNAME = os.environ.get(
+    "RENDER_EXTERNAL_HOSTNAME"
+)
+
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get(
@@ -34,6 +45,11 @@ CSRF_TRUSTED_ORIGINS = [
     ).split(",")
     if origin.strip()
 ]
+
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(
+        f"https://{RENDER_EXTERNAL_HOSTNAME}"
+    )
 
 # Render terminates HTTPS at its proxy.
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
