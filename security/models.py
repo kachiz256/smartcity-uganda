@@ -55,7 +55,21 @@ class SecurityIncidentReport(models.Model):
     location = models.CharField(
         max_length=255
     )
+        # Private incident GPS coordinates.
+    # Do not display these directly on public citizen pages.
+    latitude = models.DecimalField(
+        max_digits=9,
+        decimal_places=6,
+        blank=True,
+        null=True,
+    )
 
+    longitude = models.DecimalField(
+        max_digits=9,
+        decimal_places=6,
+        blank=True,
+        null=True,
+    )
     incident_type = models.CharField(
         max_length=40,
         choices=INCIDENT_TYPE_CHOICES
@@ -399,6 +413,7 @@ class SecurityAdvisory(models.Model):
 
     def __str__(self):
         return self.title
+    
     
 class MissingPersonCommunityNotice(models.Model):
 

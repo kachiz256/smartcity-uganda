@@ -20,7 +20,9 @@
             --border: #dfe8e2;
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -103,8 +105,9 @@
             border-radius: 50%;
             right: -110px;
             bottom: -70px;
-            box-shadow: 0 0 0 30px rgba(255,255,255,.035),
-                        0 0 0 60px rgba(255,255,255,.025);
+            box-shadow:
+                0 0 0 30px rgba(255,255,255,.035),
+                0 0 0 60px rgba(255,255,255,.025);
             pointer-events: none;
         }
 
@@ -162,7 +165,10 @@
             font-size: 14px;
         }
 
-        .benefit-list { position: relative; z-index: 1; }
+        .benefit-list {
+            position: relative;
+            z-index: 1;
+        }
 
         .benefit {
             display: flex;
@@ -250,7 +256,9 @@
             margin-bottom: 7px;
         }
 
-        .input-wrap { position: relative; }
+        .input-wrap {
+            position: relative;
+        }
 
         .input-wrap > .bi {
             position: absolute;
@@ -273,7 +281,9 @@
             background-color: #fff;
         }
 
-        .input-wrap .form-select { padding-right: 32px; }
+        .input-wrap .form-select {
+            padding-right: 32px;
+        }
 
         .input-wrap .form-control:focus,
         .input-wrap .form-select:focus {
@@ -343,30 +353,13 @@
             overflow-wrap: anywhere;
         }
 
-        .field-errors, .errorlist {
+        .field-errors,
+        .errorlist {
             color: #c0392b;
             font-size: 12px;
             padding-left: 0;
             list-style: none;
             margin: 6px 0 0;
-        }
-
-        .security-note {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            padding: 13px 15px;
-            border-radius: 11px;
-            background: #f0f8f3;
-            color: #365c46;
-            font-size: 12px;
-            line-height: 1.6;
-            margin: 22px 0;
-        }
-
-        .security-note .bi {
-            font-size: 18px;
-            color: #198754;
         }
 
         .btn-register {
@@ -408,30 +401,80 @@
         }
 
         @media (max-width: 850px) {
-            .registration-shell { grid-template-columns: 1fr; }
-            .intro-panel { padding: 27px; }
-            .intro-panel h1 { margin-top: 20px; font-size: 26px; }
+            .registration-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-panel {
+                padding: 27px;
+            }
+
+            .intro-panel h1 {
+                margin-top: 20px;
+                font-size: 26px;
+            }
+
             .benefit-list {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 12px;
             }
-            .benefit { margin-top: 12px; }
-            .form-panel { padding: 30px 26px; }
+
+            .benefit {
+                margin-top: 12px;
+            }
+
+            .form-panel {
+                padding: 30px 26px;
+            }
         }
 
         @media (max-width: 520px) {
-            .topbar { min-height: 66px; }
-            .brand-title { font-size: 14px; }
-            .brand-subtitle { font-size: 9px; }
-            .brand-mark { width: 38px; height: 38px; }
-            .page-wrap { margin: 18px auto; padding: 0 10px; }
-            .registration-shell { border-radius: 16px; }
-            .intro-panel { padding: 24px 21px; }
-            .benefit-list { grid-template-columns: 1fr; }
-            .form-panel { padding: 27px 19px; }
-            .form-title { font-size: 24px; }
-            .profile-photo-section { padding: 13px; }
+            .topbar {
+                min-height: 66px;
+            }
+
+            .brand-title {
+                font-size: 14px;
+            }
+
+            .brand-subtitle {
+                font-size: 9px;
+            }
+
+            .brand-mark {
+                width: 38px;
+                height: 38px;
+            }
+
+            .page-wrap {
+                margin: 18px auto;
+                padding: 0 10px;
+            }
+
+            .registration-shell {
+                border-radius: 16px;
+            }
+
+            .intro-panel {
+                padding: 24px 21px;
+            }
+
+            .benefit-list {
+                grid-template-columns: 1fr;
+            }
+
+            .form-panel {
+                padding: 27px 19px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .profile-photo-section {
+                padding: 13px;
+            }
         }
     </style>
 </head>
@@ -440,7 +483,10 @@
 <header class="topbar">
     <div class="container d-flex align-items-center justify-content-between">
         <a href="/" class="d-flex align-items-center gap-3 text-decoration-none text-dark">
-            <span class="brand-mark"><i class="bi bi-buildings-fill"></i></span>
+            <span class="brand-mark">
+                <i class="bi bi-buildings-fill"></i>
+            </span>
+
             <span>
                 <span class="brand-title d-block">SMART CITY UGANDA</span>
                 <span class="brand-subtitle">Digital citizen services</span>
@@ -448,7 +494,10 @@
         </a>
 
         <div class="small">
-            <span class="text-secondary d-none d-sm-inline me-2">Already registered?</span>
+            <span class="text-secondary d-none d-sm-inline me-2">
+                Already registered?
+            </span>
+
             <a href="{% url 'accounts:login' %}" class="top-login">
                 Sign in <i class="bi bi-arrow-right"></i>
             </a>
@@ -478,7 +527,9 @@
 
             <div class="benefit-list">
                 <div class="benefit">
-                    <span class="benefit-icon"><i class="bi bi-person-check-fill"></i></span>
+                    <span class="benefit-icon">
+                        <i class="bi bi-person-check-fill"></i>
+                    </span>
                     <div>
                         <strong>Your own account</strong>
                         <small>Manage your profile and requests securely.</small>
@@ -486,7 +537,9 @@
                 </div>
 
                 <div class="benefit">
-                    <span class="benefit-icon"><i class="bi bi-clipboard2-check-fill"></i></span>
+                    <span class="benefit-icon">
+                        <i class="bi bi-clipboard2-check-fill"></i>
+                    </span>
                     <div>
                         <strong>Track applications</strong>
                         <small>Follow service requests from one place.</small>
@@ -494,7 +547,9 @@
                 </div>
 
                 <div class="benefit">
-                    <span class="benefit-icon"><i class="bi bi-bell-fill"></i></span>
+                    <span class="benefit-icon">
+                        <i class="bi bi-bell-fill"></i>
+                    </span>
                     <div>
                         <strong>Stay informed</strong>
                         <small>Receive updates about your submissions.</small>
@@ -505,16 +560,22 @@
 
         <section class="form-panel">
             <div class="eyebrow">Get started</div>
+
             <h2 class="form-title">Create your account</h2>
+
             <p class="form-description">
                 Enter your details below. Fields marked with * are required.
             </p>
 
             {% if messages %}
                 {% for message in messages %}
-                    <div class="alert alert-info alert-dismissible fade show small" role="alert">
+                    <div class="alert alert-info alert-dismissible fade show small"
+                         role="alert">
                         {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"></button>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -529,19 +590,24 @@
                   action="{% url 'accounts:register' %}"
                   id="registrationForm"
                   enctype="multipart/form-data">
+
                 {% csrf_token %}
 
                 <div class="section-heading">
-                    <span class="section-icon"><i class="bi bi-person-vcard-fill"></i></span>
+                    <span class="section-icon">
+                        <i class="bi bi-person-vcard-fill"></i>
+                    </span>
                     Personal information
                 </div>
 
                 <div class="row g-3">
                     {% for field in form %}
-                        {% if field.name == "full_name" or field.name == "username" or field.name == "email" or field.name == "phone_number" or field.name == "district" or field.name == "city" %}
+                        {% if field.name == "full_name" or field.name == "username" or field.name == "email" or field.name == "phone_number" or field.name == "district" %}
                             <div class="col-md-6">
-                                <label for="{{ field.id_for_label }}" class="form-label">
-                                    {{ field.label }}{% if field.field.required %} *{% endif %}
+                                <label for="{{ field.id_for_label }}"
+                                       class="form-label">
+                                    {{ field.label }}
+                                    {% if field.field.required %} *{% endif %}
                                 </label>
 
                                 <div class="input-wrap">
@@ -555,14 +621,15 @@
                                         <i class="bi bi-telephone-fill"></i>
                                     {% elif field.name == "district" %}
                                         <i class="bi bi-geo-alt-fill"></i>
-                                    {% elif field.name == "city" %}
-                                        <i class="bi bi-buildings"></i>
                                     {% endif %}
+
                                     {{ field }}
                                 </div>
 
                                 {% for error in field.errors %}
-                                    <div class="field-errors">{{ error }}</div>
+                                    <div class="field-errors">
+                                        {{ error }}
+                                    </div>
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -570,17 +637,23 @@
                 </div>
 
                 <div class="section-heading">
-                    <span class="section-icon"><i class="bi bi-camera-fill"></i></span>
+                    <span class="section-icon">
+                        <i class="bi bi-camera-fill"></i>
+                    </span>
                     Profile picture
                 </div>
 
                 <div class="profile-photo-section">
-                    <label for="{{ form.profile_picture.id_for_label }}" class="form-label">
+                    <label for="{{ form.profile_picture.id_for_label }}"
+                           class="form-label">
                         Profile picture
+
                         {% if form.profile_picture.field.required %}
                             <span class="text-danger">*</span>
                         {% else %}
-                            <span class="text-secondary fw-normal">(Optional)</span>
+                            <span class="text-secondary fw-normal">
+                                (Optional)
+                            </span>
                         {% endif %}
                     </label>
 
@@ -591,11 +664,13 @@
                     {% endfor %}
 
                     <div class="profile-photo-help">
-                        Upload a clear photo of yourself. The picture will be associated with your account.
+                        Upload a clear photo of yourself. The picture will be
+                        associated with your account.
                     </div>
 
                     <div class="profile-photo-preview-row">
-                        <div class="profile-photo-placeholder" id="profilePhotoPlaceholder">
+                        <div class="profile-photo-placeholder"
+                             id="profilePhotoPlaceholder">
                             <i class="bi bi-person-fill"></i>
                         </div>
 
@@ -605,7 +680,9 @@
 
                         <div>
                             <div class="fw-semibold small">Photo preview</div>
-                            <div class="profile-photo-filename mt-1" id="profilePhotoFilename">
+
+                            <div class="profile-photo-filename mt-1"
+                                 id="profilePhotoFilename">
                                 No photo selected
                             </div>
                         </div>
@@ -613,7 +690,9 @@
                 </div>
 
                 <div class="section-heading">
-                    <span class="section-icon"><i class="bi bi-shield-lock-fill"></i></span>
+                    <span class="section-icon">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </span>
                     Account security
                 </div>
 
@@ -621,7 +700,8 @@
                     {% for field in form %}
                         {% if field.name == "password1" or field.name == "password2" %}
                             <div class="col-md-6">
-                                <label for="{{ field.id_for_label }}" class="form-label">
+                                <label for="{{ field.id_for_label }}"
+                                       class="form-label">
                                     {% if field.name == "password1" %}
                                         Create password *
                                     {% else %}
@@ -635,11 +715,14 @@
                                     {% else %}
                                         <i class="bi bi-lock"></i>
                                     {% endif %}
+
                                     {{ field }}
                                 </div>
 
                                 {% for error in field.errors %}
-                                    <div class="field-errors">{{ error }}</div>
+                                    <div class="field-errors">
+                                        {{ error }}
+                                    </div>
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -647,13 +730,16 @@
                 </div>
 
                 <div class="section-heading">
-                    <span class="section-icon"><i class="bi bi-person-badge-fill"></i></span>
+                    <span class="section-icon">
+                        <i class="bi bi-person-badge-fill"></i>
+                    </span>
                     Account type
                 </div>
 
                 {% for field in form %}
                     {% if field.name == "role" %}
-                        <label for="{{ field.id_for_label }}" class="form-label">
+                        <label for="{{ field.id_for_label }}"
+                               class="form-label">
                             {{ field.label }} *
                         </label>
 
@@ -663,27 +749,22 @@
                         </div>
 
                         {% for error in field.errors %}
-                            <div class="field-errors">{{ error }}</div>
+                            <div class="field-errors">
+                                {{ error }}
+                            </div>
                         {% endfor %}
                     {% endif %}
                 {% endfor %}
 
-                <div class="security-note">
-                    <i class="bi bi-info-circle-fill"></i>
-                    <div>
-                        <strong>Verification may be required.</strong><br>
-                        Government officers and department heads must complete
-                        the appropriate employment and authorization checks
-                        before receiving privileged access.
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-register w-100">
-                    Create account <i class="bi bi-arrow-right ms-2"></i>
+                <button type="submit"
+                        class="btn btn-register w-100">
+                    Create account
+                    <i class="bi bi-arrow-right ms-2"></i>
                 </button>
 
                 <div class="bottom-note">
-                    By creating an account, you agree to use this portal responsibly.
+                    By creating an account, you agree to use this portal
+                    responsibly.
                     <br>
                     Already have an account?
                     <a href="{% url 'accounts:login' %}">Sign in here</a>
@@ -702,8 +783,6 @@
 <script>
 (function () {
     const form = document.getElementById("registrationForm");
-    const districtField = document.getElementById("id_district");
-    const cityField = document.getElementById("id_city");
 
     if (!form) return;
 
@@ -719,47 +798,6 @@
             field.classList.add("form-control");
         }
     });
-
-    // Load cities after the district changes.
-    async function loadCities() {
-        if (!districtField || !cityField) return;
-
-        const districtId = districtField.value;
-        const previouslySelectedCity = cityField.value;
-
-        cityField.replaceChildren(new Option("Select city", ""));
-
-        if (!districtId) return;
-
-        try {
-            const url = "{% url 'accounts:cities_by_district' %}"
-                + "?district_id=" + encodeURIComponent(districtId);
-
-            const response = await fetch(url, {
-                method: "GET",
-                credentials: "same-origin",
-                headers: {"X-Requested-With": "XMLHttpRequest"}
-            });
-
-            if (!response.ok) throw new Error("Could not load cities.");
-
-            const data = await response.json();
-
-            (data.cities || []).forEach(function (city) {
-                cityField.add(new Option(city.name, city.id));
-            });
-
-            if (previouslySelectedCity) {
-                cityField.value = previouslySelectedCity;
-            }
-        } catch (error) {
-            console.error("City loading error:", error);
-        }
-    }
-
-    if (districtField && cityField) {
-        districtField.addEventListener("change", loadCities);
-    }
 
     // Profile picture preview.
     const photoInput = document.getElementById("id_profile_picture");

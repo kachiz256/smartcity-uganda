@@ -11,15 +11,11 @@ class GovernmentService(models.Model):
         ("public_works", "Public Works & Transport"),
         ("energy", " Energy  & Mineral Development"),
         
-        ("economic_development", "Finance planning,Trade,cooperatives & Economic Dev't"),
+       
         ("security", "Security"),
         ("urban_planning", "Lands, Housing & Urban Planning"),
         
-        ("tourism", "Tourism & Wildlife"),
-        
-        ("ict", "ICT National Guidence"),
-        ("chat", "Community Chat"),
-        ("payment", "Payments"),
+       
         
     ]
 

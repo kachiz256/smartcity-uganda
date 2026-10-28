@@ -14,7 +14,8 @@ urlpatterns = [
 
     # Public website.
     path("", dashboard_views.public_home, name="public_home"),
-
+    # Main dashboard.
+path("dashboard/", include("dashboard.urls")),
     # Authentication and accounts.
     path("accounts/", include("accounts.urls")),
 
@@ -33,29 +34,22 @@ urlpatterns = [
     path("public-works/", include("public_works.urls")),
     path("energy/", include("energy.urls")),
     path("security/", include("security.urls")),
-    path("lands/", include("lands.urls")),
-    path("economic/", include("economic_development.urls")),
-    path("tourism/", include("tourism.urls")),
-    path("ict/", include("ict.urls")),
+    
 
     # Employment, payments and reports.
     path("jobs/", include("jobs.urls")),
-    path("payments/", include("payments.urls")),
+   
     path("reports/", include("reports.urls")),
 
     # Requests and communication.
     path("requests/", include("requests.urls")),
     path("notifications/", include("notifications.urls")),
-    path("communications/", include("communications.urls")),
+    path("lands/", include("lands.urls")),
 
     # Staff portals.
     path("officer/", include("officer.urls")),
     path("calendar/", include("calendar_app.urls")),
-    path("department-head/", include("department_head.urls")),
-    path(
-        "department-announcements/",
-        include("announcements.urls"),
-    ),
+  
 
     # Department and location management.
     path("departments/", include("departments.urls")),

@@ -89,7 +89,7 @@
             flex-basis: 49px;
         }
 
-        /* UGANDA SMART-CITY HERO IMAGE */
+        /* SMART CITY HERO IMAGE */
 
         .uganda-art {
             position: relative;
@@ -197,79 +197,77 @@
                 transition: none;
             }
         }
-        
-/* GREENISH SHADOW FOR PUBLIC SERVICE CARDS */
-.services-section .service-card {
-    background: #e9dfdf;
-    border: 1px solid rgba(22, 119, 71, 0.12);
-    border-radius: 16px;
 
-    box-shadow:
-        0 7px 19px rgba(17, 107, 5, 0.97),
-        0 4px 6px rgba(22, 119, 71, 0.05);
+        /* GREEN SHADOW FOR PUBLIC SERVICE CARDS */
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-}
+        .services-section .service-card {
+            background: #e9dfdf;
+            border: 1px solid rgba(22, 119, 71, 0.12);
+            border-radius: 16px;
 
-/* STRONGER GREEN SHADOW ON HOVER */
-.services-section .service-card:hover {
-    transform: translateY(-6px);
+            box-shadow:
+                0 7px 19px rgba(17, 107, 5, 0.97),
+                0 4px 6px rgba(22, 119, 71, 0.05);
 
-    border-color: rgba(22, 119, 71, 0.3);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
 
-    box-shadow:
-        0 14px 30px rgba(22, 119, 71, 0.17),
-        0 5px 12px rgba(22, 119, 71, 0.09);
-}
+        /* STRONGER GREEN SHADOW ON HOVER */
 
-/* KEYBOARD ACCESSIBILITY */
-.services-section .service-card:focus-within {
-    outline: 2px solid rgba(22, 119, 71, 0.55);
-    outline-offset: 3px;
-}
+        .services-section .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(22, 119, 71, 0.3);
 
-/* MOBILE: KEEP THE SHADOW WITHOUT HOVER ANIMATIONS */
-@media (prefers-reduced-motion: reduce) {
-    .services-section .service-card {
-        transition: none;
-    }
+            box-shadow:
+                0 14px 30px rgba(22, 119, 71, 0.17),
+                0 5px 12px rgba(22, 119, 71, 0.09);
+        }
 
-    .services-section .service-card:hover {
-        transform: none;
-    }
-}
+        /* KEYBOARD ACCESSIBILITY */
 
+        .services-section .service-card:focus-within {
+            outline: 2px solid rgba(22, 119, 71, 0.55);
+            outline-offset: 3px;
+        }
+
+        /* MOBILE ACCESSIBILITY */
+
+        @media (prefers-reduced-motion: reduce) {
+            .services-section .service-card {
+                transition: none;
+            }
+
+            .services-section .service-card:hover {
+                transform: none;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <!-- ANNOUNCEMENT BAR -->
+
 <div class="announcement-bar">
     <div class="container announcement-inner">
         <span>
             <i class="bi bi-globe-africa"></i>
-            <span data-en="A digital future for every community"
-                  data-lg="Ebizibu by'ekikula kya digito eri buli kitundu">
-                A digital future for every community
-            </span>
+            A digital future for every community
         </span>
 
         <span class="announcement-right">
             <i class="bi bi-geo-alt"></i> Uganda
             <span class="status-dot"></span>
-            <span data-en="National platform vision"
-                  data-lg="Enteekateeka ya ggwanga">
-                National platform vision
-            </span>
+            National platform vision
         </span>
     </div>
 </div>
 
 <!-- NAVIGATION -->
+
 <header class="site-header" id="siteHeader">
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -277,11 +275,11 @@
             <a class="brand" href="{% url 'public_home' %}"
                aria-label="Smart City Uganda home">
 
-                 <img
-                src="{% static 'images/ug.jpg' %}"
-                alt="Uganda emblem"
-                class="sidebar-logo"
-            >
+                <img
+                    src="{% static 'images/ug.jpg' %}"
+                    alt="Uganda emblem"
+                    class="sidebar-logo"
+                >
 
                 <span class="brand-copy">
                     <strong>SMART CITY</strong>
@@ -300,47 +298,40 @@
             </button>
 
             <div class="collapse navbar-collapse" id="mainNavigation">
+
                 <ul class="navbar-nav mx-auto align-items-lg-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home"
-                           data-en="Home" data-lg="Awaka">Home</a>
+                        <a class="nav-link active" href="#home">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#services"
-                           data-en="Services" data-lg="Obuweereza">Services</a>
+                        <a class="nav-link" href="#services">Services</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#development"
-                           data-en="Development" data-lg="Enkulaakulana">Development</a>
+                        <a class="nav-link" href="#development">Development</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#how-it-works"
-                           data-en="How it works" data-lg="Engeri gye kikolamu">How it works</a>
+                        <a class="nav-link" href="#how-it-works">How it works</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#about"
-                           data-en="About" data-lg="Ebikwata ku ffe">About</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                 </ul>
 
                 <div class="nav-actions">
-                    <label class="language-picker" for="languageSelect"
-                           aria-label="Choose language">
-                        <i class="bi bi-translate"></i>
-                        <select id="languageSelect">
-                            <option value="en">EN</option>
-                            <option value="lg">Luganda</option>
-                        </select>
-                    </label>
-
-                    <a class="login-link" href="{% url 'accounts:login' %}"
-                       data-en="Log in" data-lg="Yingira">Log in</a>
+                    <a class="login-link" href="{% url 'accounts:login' %}">
+                        Log in
+                    </a>
 
                     <a class="btn btn-register" href="{% url 'accounts:register' %}">
-                        <span data-en="Get started" data-lg="Tandika">Get started</span>
+                        <span>Get started</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </div>
+
             </div>
         </div>
     </nav>
@@ -349,6 +340,7 @@
 <main>
 
 <!-- HERO SECTION -->
+
 <section class="hero-section" id="home">
     <div class="hero-orb orb-one"></div>
     <div class="hero-orb orb-two"></div>
@@ -357,82 +349,92 @@
         <div class="row align-items-center g-5">
 
             <div class="col-lg-7 hero-copy reveal">
+
                 <div class="eyebrow light-eyebrow">
                     <span class="eyebrow-line"></span>
-                    <span data-en="A new chapter in national development"
-                          data-lg="Omuko omuggya mu nkulaakulana y'eggwanga">
-                        A new chapter in national development
-                    </span>
+                    <span>A new chapter in national development</span>
                 </div>
 
-                <h1 data-en="One connected Uganda. <span>Endless possibilities.</span>"
-                    data-lg="Uganda emu eyungiddwa. <span>Emikisa egitaliiko kkomo.</span>">
-                    One connected Uganda. <span>Endless possibilities.</span>
+                <h1>
+                    One connected Uganda.
+                    <span>Endless possibilities.</span>
                 </h1>
 
-                <p class="hero-description"
-                   data-en="A smarter way to connect people, public services and the ideas building our nation's future. Your community matters. Your voice matters. Our future is shared."
-                   data-lg="Engeri empya ey'okugatta abantu, obuweereza bwa gavumenti n'ebirowoozo ebizimba eggwanga. Ekitundu kyo kikulu. Eddoboozi lyo likulu. Ezzadde lyaffe lya wamu.">
-                    A smarter way to connect people, public services and the ideas building our nation's future. Your community matters. Your voice matters. Our future is shared.
+                <p class="hero-description">
+                    A smarter way to connect people, public services and the
+                    ideas building our nation's future. Your community matters.
+                    Your voice matters. Our future is shared.
                 </p>
 
                 <div class="hero-actions">
-                    <a class="btn btn-hero-primary" href="{% url 'accounts:register' %}">
-                        <span data-en="Join the platform" data-lg="Wegatte ku mukutu">Join the platform</span>
+                    <a class="btn btn-hero-primary"
+                       href="{% url 'accounts:register' %}">
+                        <span>Join the platform</span>
                         <i class="bi bi-arrow-right"></i>
                     </a>
 
                     <a class="btn btn-hero-secondary" href="#services">
                         <i class="bi bi-play-circle"></i>
-                        <span data-en="Explore services" data-lg="Laba obuweereza">Explore services</span>
+                        <span>Explore services</span>
                     </a>
                 </div>
 
                 <div class="hero-trust">
-                    <div class="trust-icon"><i class="bi bi-shield-check"></i></div>
+                    <div class="trust-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
                     <div>
-                        <strong data-en="Designed for responsible digital service"
-                                data-lg="Yategekebwa okuwa obuweereza obwesigika">
-                            Designed for responsible digital service
-                        </strong>
-                        <small data-en="Privacy · Accountability · Inclusion"
-                               data-lg="Ebyama · Obuvunaanyizibwa · Okwenyigiramu">
-                            Privacy · Accountability · Inclusion
-                        </small>
+                        <strong>Designed for responsible digital service</strong>
+                        <small>Privacy · Accountability · Inclusion</small>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-lg-5 reveal reveal-delay">
+
                 <div class="hero-visual">
+
                     <div class="visual-topline">
-                        <span><span class="live-dot"></span> SMART CITY UGANDA</span>
+                        <span>
+                            <span class="live-dot"></span>
+                            SMART CITY UGANDA
+                        </span>
                         <span class="visual-chip">VISION 2030+</span>
                     </div>
 
-                    <!-- REPLACED THE OLD CSS ARTWORK WITH YOUR IMAGE -->
                     <div class="uganda-art">
                         <img
                             src="{% static 'images/new.jpg' %}"
                             alt="Smart City Uganda: connected cities, education, healthcare, agriculture, renewable energy and community development"
                             class="uganda-hero-image"
                             loading="eager"
-                            fetchpriority="high">
+                            fetchpriority="high"
+                        >
                     </div>
 
                     <div class="visual-footer">
-                        <span><i class="bi bi-globe2"></i> Countrywide vision</span>
-                        <span><i class="bi bi-lightning-charge"></i> Digital transformation</span>
+                        <span>
+                            <i class="bi bi-globe2"></i>
+                            Countrywide vision
+                        </span>
+                        <span>
+                            <i class="bi bi-lightning-charge"></i>
+                            Digital transformation
+                        </span>
                     </div>
+
                 </div>
 
                 <div class="hero-note">
                     <i class="bi bi-info-circle"></i>
-                    <span data-en="A developing digital initiative designed to grow with Uganda's needs."
-                          data-lg="Enteekateeka ya digito egenda okukula ng'ebyetaago bya Uganda bwe bikula.">
-                        A developing digital initiative designed to grow with Uganda's needs.
+                    <span>
+                        A developing digital initiative designed to grow with
+                        Uganda's needs.
                     </span>
                 </div>
+
             </div>
         </div>
     </div>
@@ -440,109 +442,113 @@
     <div class="hero-bottom-label">
         <span>01</span>
         <span class="hero-bottom-line"></span>
-        <span data-en="A shared vision for our nation"
-              data-lg="Okwolesebwa kwaffe okw'eggwanga">
-            A shared vision for our nation
-        </span>
+        <span>A shared vision for our nation</span>
     </div>
 </section>
 
 <!-- PLATFORM USERS -->
+
+
+<!-- PLATFORM USERS -->
+
 <section class="audience-strip">
     <div class="container">
+
         <div class="audience-heading">
-            <span data-en="ONE PLATFORM, MANY ROLES"
-                  data-lg="OMUKUTU OMU, OBUVUNAANYIZIBWA BUNGI">ONE PLATFORM, MANY ROLES</span>
-            <p data-en="Choose your place in the journey."
-               data-lg="Londa ekifo kyo mu nkulaakulana eno.">Choose your place in the journey.</p>
+            <span>ONE PLATFORM, MANY ROLES</span>
+            <p>Choose your place in the journey.</p>
         </div>
 
         <div class="row g-3">
-            <div class="col-md-4">
+
+            <!-- CITIZEN CARD -->
+            <div class="col-md-6">
                 <a class="audience-card" href="{% url 'accounts:register' %}">
-                    <span class="audience-icon citizen-icon"><i class="bi bi-person-heart"></i></span>
-                    <span class="audience-text">
-                        <strong data-en="I'm a citizen" data-lg="Ndi mutuuze">I'm a citizen</strong>
-                        <small data-en="Access services and share community needs"
-                               data-lg="Funna obuweereza era otegeeze ebyetaago by'ekitundu">
-                            Access services and share community needs
-                        </small>
+                    <span class="audience-icon citizen-icon">
+                        <i class="bi bi-person-heart"></i>
                     </span>
+
+                    <span class="audience-text">
+                        <strong>I'm a citizen</strong>
+                        <small>Access services and share community needs</small>
+                    </span>
+
                     <i class="bi bi-arrow-up-right audience-arrow"></i>
                 </a>
             </div>
 
-            <div class="col-md-4">
+            <!-- GOVERNMENT OFFICER CARD -->
+            <div class="col-md-6">
                 <a class="audience-card" href="{% url 'accounts:login' %}">
-                    <span class="audience-icon officer-icon"><i class="bi bi-person-badge"></i></span>
-                    <span class="audience-text">
-                        <strong data-en="I'm a government officer" data-lg="Ndi mukozi wa gavumenti">I'm a government officer</strong>
-                        <small data-en="Manage assigned work and serve communities"
-                               data-lg="Ddukanya emirimu ogikuumiddwa era oweereze abantu">
-                            Manage assigned work and serve communities
-                        </small>
+                    <span class="audience-icon officer-icon">
+                        <i class="bi bi-person-badge"></i>
                     </span>
+
+                    <span class="audience-text">
+                        <strong>I'm a government officer</strong>
+                        <small>Manage assigned work and serve communities</small>
+                    </span>
+
                     <i class="bi bi-arrow-up-right audience-arrow"></i>
                 </a>
             </div>
 
-            <div class="col-md-4">
-                <a class="audience-card" href="{% url 'accounts:login' %}">
-                    <span class="audience-icon leader-icon"><i class="bi bi-diagram-3"></i></span>
-                    <span class="audience-text">
-                        <strong data-en="I'm a department head" data-lg="Ndi mukulembeze w'ekitongole">I'm a department head</strong>
-                        <small data-en="Coordinate teams and monitor performance"
-                               data-lg="Gatta ttiimu era olondoola enkola y'emirimu">
-                            Coordinate teams and monitor performance
-                        </small>
-                    </span>
-                    <i class="bi bi-arrow-up-right audience-arrow"></i>
-                </a>
-            </div>
         </div>
 
         <p class="role-note">
             <i class="bi bi-shield-lock"></i>
-            Officer and department-head access requires an authorised account and the appropriate permissions.
+            Government officer access requires an authorised account and the
+            appropriate permissions.
         </p>
+
     </div>
 </section>
 
+
 <!-- PUBLIC SERVICES -->
+
 <section class="section-padding services-section" id="services">
     <div class="container">
+
         <div class="section-heading reveal">
             <div>
                 <div class="eyebrow">
                     <span class="eyebrow-line"></span>
-                    <span data-en="PUBLIC SERVICES, REIMAGINED"
-                          data-lg="OBUWEEREZA OBW'ABANTU, MU NGERI EMPYA">PUBLIC SERVICES, REIMAGINED</span>
+                    <span>PUBLIC SERVICES, REIMAGINED</span>
                 </div>
-                <h2 data-en="A better way to access <span>what matters.</span>"
-                    data-lg="Engeri ennungi ey'okufuna <span>ebikulu.</span>">
-                    A better way to access <span>what matters.</span>
+
+                <h2>
+                    A better way to access
+                    <span>what matters.</span>
                 </h2>
             </div>
-            <p data-en="Explore the sectors Smart City Uganda is designed to connect through a shared digital experience."
-               data-lg="Laba ebitundu Smart City Uganda by'etegekeddwa okugatta okuyita mu mukutu gwa digito ogw'awamu.">
-                Explore the sectors Smart City Uganda is designed to connect through a shared digital experience.
+
+            <p>
+                Explore the sectors Smart City Uganda is designed to connect
+                through a shared digital experience.
             </p>
         </div>
 
         <div class="row g-4">
+
             <div class="col-sm-6 col-lg-4 reveal">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-blue"><i class="bi bi-heart-pulse"></i></span>
+                        <span class="service-icon icon-blue">
+                            <i class="bi bi-heart-pulse"></i>
+                        </span>
                         <span class="service-number">01</span>
                     </div>
-                    <h3 data-en="Health &amp; wellbeing" data-lg="Eby'obulamu">Health &amp; wellbeing</h3>
-                    <p data-en="Connect people with health information, service requests and relevant public health support."
-                       data-lg="Gatta abantu n'amawulire g'ebyobulamu n'obuyambi obwetaagisa.">
-                        Connect people with health information, service requests and relevant public health support.
+
+                    <h3>Health &amp; wellbeing</h3>
+
+                    <p>
+                        Connect people with health information, service requests
+                        and relevant public health support.
                     </p>
+
                     <a href="{% url 'health:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
@@ -551,16 +557,21 @@
             <div class="col-sm-6 col-lg-4 reveal reveal-delay">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-purple"><i class="bi bi-mortarboard"></i></span>
+                        <span class="service-icon icon-purple">
+                            <i class="bi bi-mortarboard"></i>
+                        </span>
                         <span class="service-number">02</span>
                     </div>
-                    <h3 data-en="Education &amp; learning" data-lg="Ebyenjigiriza">Education &amp; learning</h3>
-                    <p data-en="Support access to learning information, educational services and learning materials."
-                       data-lg="Yamba okufuna amawulire g'ebyenjigiriza n'ebikozesebwa mu kuyiga.">
-                        Support access to learning information, educational services and learning materials.
+
+                    <h3>Education &amp; learning</h3>
+
+                    <p>
+                        Support access to learning information, educational
+                        services and learning materials.
                     </p>
+
                     <a href="{% url 'education:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
@@ -569,16 +580,21 @@
             <div class="col-sm-6 col-lg-4 reveal">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-green"><i class="bi bi-flower1"></i></span>
+                        <span class="service-icon icon-green">
+                            <i class="bi bi-flower1"></i>
+                        </span>
                         <span class="service-number">03</span>
                     </div>
-                    <h3 data-en="Agriculture &amp; enterprise" data-lg="Eby'obulimi n'obusuubuzi">Agriculture &amp; enterprise</h3>
-                    <p data-en="Support agricultural information, market connections and economic opportunities."
-                       data-lg="Yamba eby'obulimi, akatale n'emikisa gy'enkulaakulana y'ebyenfuna.">
-                        Support agricultural information, market connections and economic opportunities.
+
+                    <h3>Agriculture &amp; enterprise</h3>
+
+                    <p>
+                        Support agricultural information, market connections
+                        and economic opportunities.
                     </p>
+
                     <a href="{% url 'agriculture:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
@@ -587,16 +603,21 @@
             <div class="col-sm-6 col-lg-4 reveal">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-orange"><i class="bi bi-cone-striped"></i></span>
+                        <span class="service-icon icon-orange">
+                            <i class="bi bi-cone-striped"></i>
+                        </span>
                         <span class="service-number">04</span>
                     </div>
-                    <h3 data-en="Infrastructure &amp; transport" data-lg="Ebizimbe n'entambula">Infrastructure &amp; transport</h3>
-                    <p data-en="Report local infrastructure challenges and follow service requests through responsible offices."
-                       data-lg="Loopa ebizibu by'ebizimbe era olondoola okusaba obuweereza.">
-                        Report local infrastructure challenges and follow service requests through responsible offices.
+
+                    <h3>Infrastructure &amp; transport</h3>
+
+                    <p>
+                        Report local infrastructure challenges and follow
+                        service requests through responsible offices.
                     </p>
+
                     <a href="{% url 'public_works:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
@@ -605,16 +626,21 @@
             <div class="col-sm-6 col-lg-4 reveal reveal-delay">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-cyan"><i class="bi bi-droplet-half"></i></span>
+                        <span class="service-icon icon-cyan">
+                            <i class="bi bi-droplet-half"></i>
+                        </span>
                         <span class="service-number">05</span>
                     </div>
-                    <h3 data-en="Water &amp; environment" data-lg="Amazzi n'obutonde">Water &amp; environment</h3>
-                    <p data-en="Help bring community water, sanitation and environmental concerns to the right channels."
-                       data-lg="Yamba okutuusa ebizibu by'amazzi, obuyonjo n'obutonde eri abakwatibwako.">
-                        Help bring community water, sanitation and environmental concerns to the right channels.
+
+                    <h3>Water &amp; environment</h3>
+
+                    <p>
+                        Help bring community water, sanitation and environmental
+                        concerns to the right channels.
                     </p>
+
                     <a href="{% url 'water:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
@@ -623,46 +649,60 @@
             <div class="col-sm-6 col-lg-4 reveal">
                 <article class="service-card">
                     <div class="service-card-top">
-                        <span class="service-icon icon-red"><i class="bi bi-briefcase"></i></span>
+                        <span class="service-icon icon-red">
+                            <i class="bi bi-briefcase"></i>
+                        </span>
                         <span class="service-number">06</span>
                     </div>
-                    <h3 data-en="Jobs &amp; economic growth" data-lg="Emirimu n'enkulaakulana">Jobs &amp; economic growth</h3>
-                    <p data-en="Discover employment information and opportunities linked to community development."
-                       data-lg="Noonya amawulire g'emirimu n'emikisa gy'enkulaakulana y'ekitundu.">
-                        Discover employment information and opportunities linked to community development.
+
+                    <h3>Jobs &amp; economic growth</h3>
+
+                    <p>
+                        Discover employment information and opportunities
+                        linked to community development.
                     </p>
+
                     <a href="{% url 'jobs:home' %}" class="service-link">
-                        <span data-en="Explore sector" data-lg="Laba ekitundu">Explore sector</span>
+                        <span>Explore sector</span>
                         <i class="bi bi-arrow-up-right"></i>
                     </a>
                 </article>
             </div>
+
         </div>
 
         <div class="services-bottom">
             <span>
                 <i class="bi bi-plus-circle"></i>
-                <span data-en="Additional sectors include energy, land, tourism, ICT, security and public services."
-                      data-lg="Ebitundu ebirala mulimu amasannyalaze, ettaka, eby'obulambuzi, ICT, ebyokwerinda n'obuweereza obulala.">
-                    Additional sectors include energy, land, tourism, ICT, security and public services.
+                <span>
+                    Additional sectors include energy, land, tourism, ICT,
+                    security and public services.
                 </span>
             </span>
-            <a href="{% url 'accounts:register' %}"
-               data-en="Get started today" data-lg="Tandika leero">
+
+            <a href="{% url 'accounts:register' %}">
                 Get started today <i class="bi bi-arrow-right"></i>
             </a>
         </div>
+
     </div>
 </section>
 
 <!-- NATIONAL DEVELOPMENT -->
+
 <section class="development-section section-padding" id="development">
     <div class="container">
+
         <div class="row align-items-center g-5">
+
             <div class="col-lg-6 reveal">
                 <div class="development-visual">
+
                     <div class="dev-top">
-                        <span><i class="bi bi-globe-africa"></i> NATIONAL DEVELOPMENT</span>
+                        <span>
+                            <i class="bi bi-globe-africa"></i>
+                            NATIONAL DEVELOPMENT
+                        </span>
                         <span class="dev-live">CONNECTED VISION</span>
                     </div>
 
@@ -671,16 +711,30 @@
                         <div class="map-ring ring-two"></div>
                         <div class="map-ring ring-three"></div>
 
-<div class="map-center">
-    
-    <strong>UGANDA</strong>
-    <small>Connected communities</small>
-</div>
-                        <span class="map-node node-a"><i class="bi bi-heart-pulse"></i></span>
-                        <span class="map-node node-b"><i class="bi bi-mortarboard"></i></span>
-                        <span class="map-node node-c"><i class="bi bi-flower1"></i></span>
-                        <span class="map-node node-d"><i class="bi bi-droplet"></i></span>
-                        <span class="map-node node-e"><i class="bi bi-cone-striped"></i></span>
+                        <div class="map-center">
+                            <strong>UGANDA</strong>
+                            <small>Connected communities</small>
+                        </div>
+
+                        <span class="map-node node-a">
+                            <i class="bi bi-heart-pulse"></i>
+                        </span>
+
+                        <span class="map-node node-b">
+                            <i class="bi bi-mortarboard"></i>
+                        </span>
+
+                        <span class="map-node node-c">
+                            <i class="bi bi-flower1"></i>
+                        </span>
+
+                        <span class="map-node node-d">
+                            <i class="bi bi-droplet"></i>
+                        </span>
+
+                        <span class="map-node node-e">
+                            <i class="bi bi-cone-striped"></i>
+                        </span>
 
                         <span class="map-label label-a">Health</span>
                         <span class="map-label label-b">Education</span>
@@ -690,38 +744,45 @@
                     </div>
 
                     <div class="dev-bottom">
-                        <span><i class="bi bi-diagram-3"></i> Shared systems</span>
-                        <span><i class="bi bi-people"></i> Citizen participation</span>
+                        <span>
+                            <i class="bi bi-diagram-3"></i>
+                            Shared systems
+                        </span>
+                        <span>
+                            <i class="bi bi-people"></i>
+                            Citizen participation
+                        </span>
                     </div>
+
                 </div>
             </div>
 
             <div class="col-lg-6 reveal reveal-delay">
+
                 <div class="eyebrow">
                     <span class="eyebrow-line"></span>
-                    <span data-en="BEYOND CITY LIMITS" data-lg="OKUSUKKA EKIBUGA">BEYOND CITY LIMITS</span>
+                    <span>BEYOND CITY LIMITS</span>
                 </div>
 
-                <h2 class="development-title"
-                    data-en="Built for <span>every part</span> of Uganda."
-                    data-lg="Yategekebwa <span>ku bitundu byonna</span> ebya Uganda.">
+                <h2 class="development-title">
                     Built for <span>every part</span> of Uganda.
                 </h2>
 
-                <p class="development-intro"
-                   data-en="National development starts in local communities. The platform is designed to connect national coordination with the needs and priorities of people where they live."
-                   data-lg="Enkulaakulana y'eggwanga etandikira mu bitundu. Omukutu guno gugendereddwamu okugatta enteekateeka z'eggwanga n'ebyetaago by'abantu gye babeera.">
-                    National development starts in local communities. The platform is designed to connect national coordination with the needs and priorities of people where they live.
+                <p class="development-intro">
+                    National development starts in local communities. The
+                    platform is designed to connect national coordination with
+                    the needs and priorities of people where they live.
                 </p>
 
                 <div class="development-points">
+
                     <div class="development-point">
                         <span><i class="bi bi-geo-alt"></i></span>
                         <div>
-                            <strong data-en="Connected locations" data-lg="Ebitundu ebigattiddwa">Connected locations</strong>
-                            <p data-en="Support for national, district, city, municipal and community-level service delivery."
-                               data-lg="Obuyambi ku buweereza ku mitendera gy'eggwanga, disitulikiti, ebibuga n'ebitundu.">
-                                Support for national, district, city, municipal and community-level service delivery.
+                            <strong>Connected locations</strong>
+                            <p>
+                                Support for national, district, city, municipal
+                                and community-level service delivery.
                             </p>
                         </div>
                     </div>
@@ -729,10 +790,10 @@
                     <div class="development-point">
                         <span><i class="bi bi-clipboard-data"></i></span>
                         <div>
-                            <strong data-en="Evidence-led decisions" data-lg="Ensalawo ezesigamiziddwa ku bujulizi">Evidence-led decisions</strong>
-                            <p data-en="Help authorised teams identify service gaps and monitor progress using reliable information."
-                               data-lg="Yamba ttiimu ezikkiriziddwa okuzuula ebitundu ebirimu ebbula ly'obuweereza n'okulondoola enkulaakulana.">
-                                Help authorised teams identify service gaps and monitor progress using reliable information.
+                            <strong>Evidence-led decisions</strong>
+                            <p>
+                                Help authorised teams identify service gaps and
+                                monitor progress using reliable information.
                             </p>
                         </div>
                     </div>
@@ -740,180 +801,207 @@
                     <div class="development-point">
                         <span><i class="bi bi-shield-check"></i></span>
                         <div>
-                            <strong data-en="Accountable service" data-lg="Obuweereza obulina obuvunaanyizibwa">Accountable service</strong>
-                            <p data-en="Traceable requests, clear responsibilities and appropriate access controls."
-                               data-lg="Okusaba okulondoolwa, obuvunaanyizibwa obutegeerekeka n'okufuga olukusa.">
-                                Traceable requests, clear responsibilities and appropriate access controls.
+                            <strong>Accountable service</strong>
+                            <p>
+                                Traceable requests, clear responsibilities and
+                                appropriate access controls.
                             </p>
                         </div>
                     </div>
+
                 </div>
 
-                <a href="#how-it-works" class="text-link"
-                   data-en="See how the platform works"
-                   data-lg="Laba engeri omukutu gye gukolamu">
-                    See how the platform works <i class="bi bi-arrow-right"></i>
+                <a href="#how-it-works" class="text-link">
+                    See how the platform works
+                    <i class="bi bi-arrow-right"></i>
                 </a>
+
             </div>
         </div>
     </div>
 </section>
 
 <!-- HOW IT WORKS -->
+
 <section class="workflow-section section-padding" id="how-it-works">
     <div class="container">
+
         <div class="section-heading centered-heading reveal">
+
             <div class="eyebrow justify-content-center">
                 <span class="eyebrow-line"></span>
-                <span data-en="FROM VOICE TO ACTION"
-                      data-lg="OKUVA KU DDOBOOZI OKUDDA KU KIKOLWA">FROM VOICE TO ACTION</span>
+                <span>FROM VOICE TO ACTION</span>
                 <span class="eyebrow-line"></span>
             </div>
 
-            <h2 data-en="Every request deserves <span>a clear path.</span>"
-                data-lg="Buli kusaba kulina <span>ekkubo eritegeerekeka.</span>">
+            <h2>
                 Every request deserves <span>a clear path.</span>
             </h2>
 
-            <p data-en="A simple, traceable workflow can help public services respond more effectively."
-               data-lg="Enkola ennyangu era erondoolwa eyinza okuyamba obuweereza bwa gavumenti okuddamu obulungi.">
-                A simple, traceable workflow can help public services respond more effectively.
+            <p>
+                A simple, traceable workflow can help public services respond
+                more effectively.
             </p>
         </div>
 
         <div class="workflow-grid">
+
             <article class="workflow-step reveal">
                 <span class="step-number">01</span>
-                <div class="step-icon"><i class="bi bi-chat-square-text"></i></div>
-                <h3 data-en="Share a need" data-lg="Tegeeza ekyetaago">Share a need</h3>
-                <p data-en="A citizen submits a service request or community report."
-                   data-lg="Omuntu asaba obuweereza oba alopa ekizibu ky'ekitundu.">
+                <div class="step-icon">
+                    <i class="bi bi-chat-square-text"></i>
+                </div>
+                <h3>Share a need</h3>
+                <p>
                     A citizen submits a service request or community report.
                 </p>
             </article>
 
-            <div class="workflow-connector"><i class="bi bi-arrow-right"></i></div>
+            <div class="workflow-connector">
+                <i class="bi bi-arrow-right"></i>
+            </div>
 
             <article class="workflow-step reveal reveal-delay">
                 <span class="step-number">02</span>
-                <div class="step-icon"><i class="bi bi-signpost-split"></i></div>
-                <h3 data-en="Route responsibly" data-lg="Tuusa eri abakwatibwako">Route responsibly</h3>
-                <p data-en="The request is recorded and directed to the responsible service team."
-                   data-lg="Okusaba kuwandiikibwa ne kutuusibwa eri ttiimu evunaanyizibwa.">
-                    The request is recorded and directed to the responsible service team.
+                <div class="step-icon">
+                    <i class="bi bi-signpost-split"></i>
+                </div>
+                <h3>Route responsibly</h3>
+                <p>
+                    The request is recorded and directed to the responsible
+                    service team.
                 </p>
             </article>
 
-            <div class="workflow-connector"><i class="bi bi-arrow-right"></i></div>
+            <div class="workflow-connector">
+                <i class="bi bi-arrow-right"></i>
+            </div>
 
             <article class="workflow-step reveal reveal-delay">
                 <span class="step-number">03</span>
-                <div class="step-icon"><i class="bi bi-person-gear"></i></div>
-                <h3 data-en="Take action" data-lg="Kola ekisoboka">Take action</h3>
-                <p data-en="An authorised officer reviews the case and records progress."
-                   data-lg="Omukozi akkiriziddwa yeekenneenya ensonga n'awandiika enkulaakulana.">
+                <div class="step-icon">
+                    <i class="bi bi-person-gear"></i>
+                </div>
+                <h3>Take action</h3>
+                <p>
                     An authorised officer reviews the case and records progress.
                 </p>
             </article>
 
-            <div class="workflow-connector"><i class="bi bi-arrow-right"></i></div>
+            <div class="workflow-connector">
+                <i class="bi bi-arrow-right"></i>
+            </div>
 
             <article class="workflow-step reveal">
                 <span class="step-number">04</span>
-                <div class="step-icon"><i class="bi bi-bell"></i></div>
-                <h3 data-en="Keep informed" data-lg="Tegeeza omuntu">Keep informed</h3>
-                <p data-en="Citizens can receive updates and follow the outcome where available."
-                   data-lg="Abantu basobola okufuna amawulire agapya n'okulondoola ekyavaamu.">
-                    Citizens can receive updates and follow the outcome where available.
+                <div class="step-icon">
+                    <i class="bi bi-bell"></i>
+                </div>
+                <h3>Keep informed</h3>
+                <p>
+                    Citizens can receive updates and follow the outcome where
+                    available.
                 </p>
             </article>
+
         </div>
 
         <div class="workflow-disclaimer">
             <i class="bi bi-info-circle"></i>
-            This describes the intended workflow. Availability depends on the relevant module and authorised institutional processes.
+            This describes the intended workflow. Availability depends on the
+            relevant module and authorised institutional processes.
         </div>
+
     </div>
 </section>
 
 <!-- OUR COMMITMENT -->
+
 <section class="values-section section-padding" id="about">
     <div class="container">
+
         <div class="values-banner reveal">
+
             <div class="values-content">
+
                 <div class="eyebrow light-eyebrow">
                     <span class="eyebrow-line"></span>
-                    <span data-en="OUR COMMITMENT" data-lg="EKIGENDERERWA KYAFFE">OUR COMMITMENT</span>
+                    <span>OUR COMMITMENT</span>
                 </div>
 
-                <h2 data-en="Technology should bring people <span>closer to progress.</span>"
-                    data-lg="Tekinologiya erina okusembeza abantu <span>eri enkulaakulana.</span>">
-                    Technology should bring people <span>closer to progress.</span>
+                <h2>
+                    Technology should bring people
+                    <span>closer to progress.</span>
                 </h2>
 
-                <p data-en="We envision public services that are easier to reach, institutions that coordinate better, and communities whose voices inform development priorities."
-                   data-lg="Tusuubira obuweereza obwangu okufuna, ebitongole ebikola awamu obulungi, n'ebitundu ebiwulirwamu mu kuteekawo eby'okusooka mu nkulaakulana.">
-                    We envision public services that are easier to reach, institutions that coordinate better, and communities whose voices inform development priorities.
+                <p>
+                    We envision public services that are easier to reach,
+                    institutions that coordinate better, and communities whose
+                    voices inform development priorities.
                 </p>
 
-                <a href="{% url 'accounts:register' %}" class="btn btn-hero-primary">
-                    <span data-en="Become part of the vision"
-                          data-lg="Beera kitundu ku kwolesebwa kuno">Become part of the vision</span>
+                <a href="{% url 'accounts:register' %}"
+                   class="btn btn-hero-primary">
+                    <span>Become part of the vision</span>
                     <i class="bi bi-arrow-right"></i>
                 </a>
+
             </div>
 
             <div class="values-art">
                 <div class="values-circle circle-a"></div>
                 <div class="values-circle circle-b"></div>
-                
-                
+
                 <span class="values-star star-a">✦</span>
                 <span class="values-star star-b">✧</span>
                 <span class="values-star star-c">✦</span>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- FINAL CALL TO ACTION -->
+
 <section class="final-cta">
     <div class="container final-cta-inner reveal">
+
         <div>
-            <span class="cta-overline"
-                  data-en="THE FUTURE IS A SHARED PROJECT"
-                  data-lg="EZZADDE LYAFFE MULIMU FFE FENNA">
+            <span class="cta-overline">
                 THE FUTURE IS A SHARED PROJECT
             </span>
 
-            <h2 data-en="Your Uganda. Your voice. <span>Our future.</span>"
-                data-lg="Uganda yo. Eddoboozi lyo. <span>Ezzadde lyaffe.</span>">
+            <h2>
                 Your Uganda. Your voice. <span>Our future.</span>
             </h2>
         </div>
 
         <a href="{% url 'accounts:register' %}" class="btn btn-cta">
-            <span data-en="Create your account" data-lg="Kola akawunti yo">Create your account</span>
+            <span>Create your account</span>
             <i class="bi bi-arrow-up-right"></i>
         </a>
+
     </div>
 </section>
 
 </main>
 
 <!-- FOOTER -->
+
 <footer class="site-footer">
     <div class="container">
+
         <div class="footer-main">
 
-            <a class="brand footer-brand" href="{% url 'public_home' %}"
+            <a class="brand footer-brand"
+               href="{% url 'public_home' %}"
                aria-label="Smart City Uganda home">
 
-                 <img
-                src="{% static 'images/ug.jpg' %}"
-                alt="Uganda emblem"
-                class="sidebar-logo"
-            >
+                <img
+                    src="{% static 'images/ug.jpg' %}"
+                    alt="Uganda emblem"
+                    class="sidebar-logo"
+                >
 
                 <span class="brand-copy">
                     <strong>SMART CITY</strong>
@@ -921,27 +1009,32 @@
                 </span>
             </a>
 
-            <p data-en="A digital platform vision for more connected services, stronger coordination and inclusive national development."
-               data-lg="Okwolesebwa lw'omukutu gwa digito ogugatta obuweereza, okuteekateeka awamu n'enkulaakulana ey'awamu.">
-                A digital platform vision for more connected services, stronger coordination and inclusive national development.
+            <p>
+                A digital platform vision for more connected services,
+                stronger coordination and inclusive national development.
             </p>
 
             <div class="footer-links">
-                <a href="#services" data-en="Services" data-lg="Obuweereza">Services</a>
-                <a href="#development" data-en="Development" data-lg="Enkulaakulana">Development</a>
-                <a href="{% url 'accounts:login' %}" data-en="Login" data-lg="Yingira">Login</a>
-                <a href="{% url 'accounts:register' %}" data-en="Register" data-lg="Wewandiise">Register</a>
+                <a href="#services">Services</a>
+                <a href="#development">Development</a>
+                <a href="{% url 'accounts:login' %}">Login</a>
+                <a href="{% url 'accounts:register' %}">Register</a>
             </div>
+
         </div>
 
         <div class="footer-bottom">
             <span>© {% now "Y" %} Smart City Uganda</span>
-            <span data-en="Designed for a connected and inclusive future."
-                  data-lg="Yategekebwa okuzimba ezzadde erigattiddwa era eririmu bonna.">
+
+            <span>
                 Designed for a connected and inclusive future.
             </span>
-            <a href="#home" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
+
+            <a href="#home" aria-label="Back to top">
+                <i class="bi bi-arrow-up"></i>
+            </a>
         </div>
+
     </div>
 </footer>
 

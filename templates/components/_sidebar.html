@@ -69,13 +69,13 @@
             <a href="{% url 'public_works:home' %}"
                class="sidebar-link {% if request.resolver_match.app_name == 'public_works' %}active{% endif %}">
                 <i class="bi bi-cone-striped"></i>
-                <span>Public Works &amp; Transport</span>
+                <span> Transport</span>
             </a>
 
             <a href="{% url 'energy:home' %}"
                class="sidebar-link {% if request.resolver_match.app_name == 'energy' %}active{% endif %}">
                 <i class="bi bi-lightning-charge"></i>
-                <span>Energy &amp; Mineral Development</span>
+                <span>Electricity</span>
             </a>
 
             <a href="{% url 'security:home' %}"
@@ -87,33 +87,10 @@
             <a href="{% url 'lands:home' %}"
                class="sidebar-link {% if request.resolver_match.app_name == 'lands' %}active{% endif %}">
                 <i class="bi bi-buildings"></i>
-                <span>Lands, Housing &amp; Urban Planning</span>
+                <span>Lands, &amp; Urban Planning</span>
             </a>
 
-            <a href="{% url 'economic_development:home' %}"
-               class="sidebar-link {% if request.resolver_match.app_name == 'economic_development' %}active{% endif %}">
-                <i class="bi bi-graph-up-arrow"></i>
-                <span>Economic Development</span>
-            </a>
-
-            <a href="{% url 'tourism:home' %}"
-               class="sidebar-link {% if request.resolver_match.app_name == 'tourism' %}active{% endif %}">
-                <i class="bi bi-globe2"></i>
-                <span>Tourism &amp; Wildlife</span>
-            </a>
-
-            <a href="{% url 'ict:home' %}"
-               class="sidebar-link {% if request.resolver_match.app_name == 'ict' %}active{% endif %}">
-                <i class="bi bi-cpu"></i>
-                <span>ICT &amp; National Guidance</span>
-            </a>
-
-            <a href="{% url 'communications:chat' %}"
-               class="sidebar-link {% if request.resolver_match.app_name == 'communications' %}active{% endif %}">
-                <i class="bi bi-chat-dots"></i>
-                <span>Community Chat</span>
-            </a>
-
+           
         {% endif %}
 
         <!-- MY ACTIVITY -->
@@ -133,11 +110,7 @@
                 <span>My Reports</span>
             </a>
 
-            <a href="{% url 'payments:home' %}"
-               class="sidebar-link {% if request.resolver_match.app_name == 'payments' %}active{% endif %}">
-                <i class="bi bi-receipt-cutoff"></i>
-                <span>Payments</span>
-            </a>
+           
 
             <a href="{% url 'jobs:home' %}"
                class="sidebar-link {% if request.resolver_match.app_name == 'jobs' %}active{% endif %}">
@@ -164,12 +137,7 @@
                 {% endif %}
             </a>
 
-            <a href="#"
-               class="sidebar-link"
-               title="Settings page will be connected after its URL is confirmed">
-                <i class="bi bi-gear"></i>
-                <span>Settings</span>
-            </a>
+           
 
         {% endif %}
 

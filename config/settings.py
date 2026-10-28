@@ -86,10 +86,10 @@ INSTALLED_APPS = [
     "tasks",
     "notifications",
     "projects",
-    "payments",
+    
     "jobs",
     "calendar_app",
-    "communications",
+   
     "audit",
 
     # Citizen service departments
@@ -101,16 +101,14 @@ INSTALLED_APPS = [
     "energy",
     "security",
     "lands",
-    "economic_development",
-    "tourism",
-    "ict",
+    
     "announcements",
 
     # User portals and dashboards
     "dashboard",
     "citizen",
     "officer",
-    "department_head",
+    
     "city_admin",
 ]
 

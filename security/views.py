@@ -9,6 +9,7 @@ from django.shortcuts import (
     redirect,
     
 )
+from decimal import Decimal, InvalidOperation
 from django.db.models import Q, Count
 def home(request):
 
@@ -99,27 +100,67 @@ def home(request):
     )
     
 def incident_report(request):
-
     if request.method == "POST":
-
         form = SecurityIncidentReportForm(
             request.POST,
             request.FILES
         )
 
         if form.is_valid():
+            latitude_value = request.POST.get("latitude", "").strip()
+            longitude_value = request.POST.get("longitude", "").strip()
 
-            report = form.save()
+            latitude = None
+            longitude = None
 
-            messages.success(
-                request,
-                "Your security incident has been reported successfully."
-            )
+            # Both coordinates must be supplied together.
+            if bool(latitude_value) != bool(longitude_value):
+                form.add_error(
+                    None,
+                    "Please select a valid incident location on the map, "
+                    "or clear the map pin and submit without GPS coordinates."
+                )
+            elif latitude_value and longitude_value:
+                try:
+                    latitude = Decimal(latitude_value)
+                    longitude = Decimal(longitude_value)
 
-            return redirect(
-                "security:incident_report_success",
-                report_id=report.pk
-            )
+                    if (
+                        not latitude.is_finite()
+                        or not longitude.is_finite()
+                        or latitude < Decimal("-90")
+                        or latitude > Decimal("90")
+                        or longitude < Decimal("-180")
+                        or longitude > Decimal("180")
+                    ):
+                        raise InvalidOperation
+
+                    # Match the model's six decimal places.
+                    latitude = latitude.quantize(Decimal("0.000001"))
+                    longitude = longitude.quantize(Decimal("0.000001"))
+
+                except (InvalidOperation, ValueError):
+                    form.add_error(
+                        None,
+                        "The selected GPS location is invalid. "
+                        "Please select the location again."
+                    )
+
+            if form.is_valid():
+                report = form.save(commit=False)
+                report.latitude = latitude
+                report.longitude = longitude
+                report.save()
+
+                messages.success(
+                    request,
+                    "Your security incident has been reported successfully."
+                )
+
+                return redirect(
+                    "security:incident_report_success",
+                    report_id=report.pk
+                )
 
     else:
         form = SecurityIncidentReportForm()
@@ -127,9 +168,7 @@ def incident_report(request):
     return render(
         request,
         "security/incident_report.html",
-        {
-            "form": form
-        }
+        {"form": form}
     )
 
 

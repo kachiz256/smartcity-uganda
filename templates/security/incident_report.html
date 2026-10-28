@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block title %}
@@ -9,7 +10,6 @@
 <div class="container-fluid py-3">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-
         <div>
             <h2 class="fw-bold mb-1">
                 <i class="bi bi-exclamation-triangle text-danger"></i>
@@ -26,12 +26,9 @@
             <i class="bi bi-arrow-left"></i>
             Back
         </a>
-
     </div>
 
-
     <div class="row justify-content-center">
-
         <div class="col-lg-9 col-xl-8">
 
             <div class="card border-0 shadow-sm">
@@ -43,24 +40,20 @@
                     </h5>
                 </div>
 
-
                 <div class="card-body p-4">
 
                     <div class="alert alert-warning">
                         <i class="bi bi-info-circle"></i>
-
-                        Provide accurate information about the
-                        incident. For an emergency requiring immediate
-                        assistance, contact the appropriate emergency
-                        authorities directly.
+                        Provide accurate information about the incident.
+                        For an emergency requiring immediate assistance,
+                        contact the appropriate emergency authorities directly.
                     </div>
 
-
                     <form method="POST"
-                          enctype="multipart/form-data">
+                          enctype="multipart/form-data"
+                          id="securityIncidentForm">
 
                         {% csrf_token %}
-
 
                         {% if form.non_field_errors %}
                             <div class="alert alert-danger">
@@ -68,15 +61,12 @@
                             </div>
                         {% endif %}
 
-
                         <div class="row g-3">
 
                             <div class="col-md-6">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.citizen_name.label }}
                                 </label>
-
                                 {{ form.citizen_name }}
 
                                 {% for error in form.citizen_name.errors %}
@@ -84,16 +74,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-md-6">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.phone_number.label }}
                                 </label>
-
                                 {{ form.phone_number }}
 
                                 {% for error in form.phone_number.errors %}
@@ -101,16 +87,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-md-6">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.email.label }}
                                 </label>
-
                                 {{ form.email }}
 
                                 {% for error in form.email.errors %}
@@ -118,16 +100,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-md-6">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.district.label }}
                                 </label>
-
                                 {{ form.district }}
 
                                 {% for error in form.district.errors %}
@@ -135,16 +113,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-12">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.location.label }}
                                 </label>
-
                                 {{ form.location }}
 
                                 {% for error in form.location.errors %}
@@ -152,16 +126,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-md-6">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.incident_type.label }}
                                 </label>
-
                                 {{ form.incident_type }}
 
                                 {% for error in form.incident_type.errors %}
@@ -169,16 +139,12 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-12">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.description.label }}
                                 </label>
-
                                 {{ form.description }}
 
                                 {% for error in form.description.errors %}
@@ -186,12 +152,9 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
-
                             <div class="col-12">
-
                                 <label class="form-label fw-semibold">
                                     {{ form.attachment.label }}
                                 </label>
@@ -208,42 +171,197 @@
                                         {{ error }}
                                     </div>
                                 {% endfor %}
-
                             </div>
 
                         </div>
 
+                        <!-- GPS LOCATION & SAFETY -->
+                        <div class="card border-0 shadow-sm rounded-3 my-4">
+                            <div class="card-body p-4">
+
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="rounded-circle bg-success-subtle
+                                                text-success d-flex
+                                                align-items-center
+                                                justify-content-center"
+                                         style="width:48px;height:48px;">
+                                        <i class="bi bi-geo-alt-fill fs-4"></i>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="mb-1">
+                                            GPS Location &amp; Safety
+                                        </h5>
+
+                                        <p class="text-muted small mb-0">
+                                            Get your current location to help
+                                            identify where a security incident occurred.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Coordinates are kept hidden -->
+                                <input type="hidden"
+                                       name="latitude"
+                                       id="gpsLatitude"
+                                       value="">
+
+                                <input type="hidden"
+                                       name="longitude"
+                                       id="gpsLongitude"
+                                       value="">
+
+                                <!-- Request GPS location -->
+                                <button type="button"
+                                        id="getGpsLocation"
+                                        class="btn btn-outline-success">
+                                    <i class="bi bi-crosshair me-1"></i>
+                                    Get My Location
+                                </button>
+
+                                <!-- Show this link after GPS succeeds -->
+                                <a id="gpsMapLink"
+                                   href="#"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-success d-none ms-2">
+                                    <i class="bi bi-map me-1"></i>
+                                    Open Location in Google Maps
+                                </a>
+
+                                <!-- Hidden status for accessibility and debugging -->
+                                <p id="gpsStatus"
+                                   class="visually-hidden"
+                                   aria-live="polite"></p>
+
+                            </div>
+                        </div>
+                        <!-- END GPS LOCATION & SAFETY -->
 
                         <hr class="my-4">
 
-
                         <div class="d-flex justify-content-end gap-2">
-
                             <a href="{% url 'security:home' %}"
                                class="btn btn-light border">
                                 Cancel
                             </a>
 
-                            <button type="submit"
-                                    class="btn btn-danger">
-
+                            <button type="submit" class="btn btn-danger">
                                 <i class="bi bi-send"></i>
                                 Submit Security Report
-
                             </button>
-
                         </div>
 
                     </form>
 
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
+
+<script>
+(function () {
+    "use strict";
+
+    function initialiseGPS() {
+        const getButton = document.getElementById("getGpsLocation");
+        const latitudeInput = document.getElementById("gpsLatitude");
+        const longitudeInput = document.getElementById("gpsLongitude");
+        const mapLink = document.getElementById("gpsMapLink");
+        const status = document.getElementById("gpsStatus");
+
+        if (
+            !getButton ||
+            !latitudeInput ||
+            !longitudeInput ||
+            !mapLink ||
+            !status
+        ) {
+            return;
+        }
+
+        // Prevent duplicate click handlers.
+        if (getButton.dataset.gpsInitialised === "true") {
+            return;
+        }
+
+        getButton.dataset.gpsInitialised = "true";
+
+        getButton.addEventListener("click", function () {
+            if (!window.isSecureContext || !navigator.geolocation) {
+                status.textContent =
+                    "GPS requires a secure connection and browser support.";
+                return;
+            }
+
+            getButton.disabled = true;
+            getButton.innerHTML =
+                '<span class="spinner-border spinner-border-sm me-2" ' +
+                'aria-hidden="true"></span>Getting Location...';
+
+            status.textContent = "Requesting your location.";
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    latitudeInput.value = lat.toFixed(6);
+                    longitudeInput.value = lon.toFixed(6);
+
+                    mapLink.href =
+                        "https://www.google.com/maps/search/?api=1&query=" +
+                        encodeURIComponent(lat + "," + lon);
+
+                    mapLink.classList.remove("d-none");
+                    getButton.classList.add("d-none");
+
+                    status.textContent = "Location obtained successfully.";
+                },
+
+                function (error) {
+                    getButton.disabled = false;
+                    getButton.innerHTML =
+                        '<i class="bi bi-crosshair me-1"></i>Get My Location';
+
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            status.textContent =
+                                "Location permission was denied.";
+                            break;
+
+                        case error.POSITION_UNAVAILABLE:
+                            status.textContent =
+                                "Your location is currently unavailable.";
+                            break;
+
+                        case error.TIMEOUT:
+                            status.textContent =
+                                "The location request timed out.";
+                            break;
+
+                        default:
+                            status.textContent =
+                                "Unable to retrieve your location.";
+                    }
+                },
+
+                {
+                    enableHighAccuracy: true,
+                    timeout: 20000,
+                    maximumAge: 0
+                }
+            );
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initialiseGPS);
+    } else {
+        initialiseGPS();
+    }
+})();
+</script>
 
 {% endblock %}

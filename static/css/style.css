@@ -205,15 +205,14 @@ a {
    ========================================================= */
 
 .smart-city-main {
+    box-sizing: border-box;
     width: calc(100% - var(--sidebar-width));
-
+    min-width: 0;
     margin-left: var(--sidebar-width);
-
     min-height: 100vh;
-
     display: flex;
-
     flex-direction: column;
+    flex: 1 1 auto;
 }
 
 
@@ -565,11 +564,12 @@ a {
         transform: translateX(0);
     }
 
-    .smart-city-main {
-        width: 100%;
-
-        margin-left: 0;
-    }
+   .smart-city-main {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    flex: 1 1 auto;
+}
 
     .sidebar-toggle {
         display: block;

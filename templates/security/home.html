@@ -1,16 +1,14 @@
-{% extends "base.html" %}
 
-{% block title %}
-    Security & Community Safety
-{% endblock %}
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Security &amp; Community Safety{% endblock %}
 
 {% block content %}
 
 <div class="container-fluid py-3">
 
-    <!-- Page Header -->
+    <!-- PAGE HEADER -->
     <div class="mb-4">
-
         <div class="d-flex align-items-center gap-2">
 
             <div>
@@ -19,7 +17,7 @@
 
             <div>
                 <h4 class="mb-1">
-                    Security & Community Safety
+                    Security &amp; Community Safety
                 </h4>
 
                 <p class="text-muted mb-0">
@@ -29,99 +27,92 @@
             </div>
 
         </div>
-
     </div>
 
-
-    <!-- Information Alert -->
+    <!-- INFORMATION ALERT -->
     <div class="alert alert-light border mb-4">
-
         <div class="d-flex align-items-start gap-2">
 
             <i class="bi bi-info-circle text-primary fs-5"></i>
 
             <div>
-
                 <strong>
                     Smart City Uganda Security Services
                 </strong>
 
                 <div class="small text-muted mt-1">
-
                     Use this section to access security information,
                     report security incidents, view public safety
                     advisories and access community safety services.
-
                 </div>
-
             </div>
 
         </div>
-
     </div>
 
-
-    <!-- Services -->
+    <!-- SECURITY SERVICES -->
     <div class="row g-3">
 
         {% for service in services %}
 
-            <div class="col-12 col-md-6 col-xl-4">
+            {% if not forloop.first %}
 
-                <div class="card border-0 shadow-sm h-100">
+                <div class="col-12 col-md-6 col-xl-4">
 
-                    <div class="card-body">
+                    <div class="card border-0 shadow-sm h-100">
 
-                        <div class="d-flex align-items-start gap-3">
+                        <div class="card-body">
 
-                            <div
-                                class="rounded-circle
-                                       bg-{{ service.color }}
-                                       text-white
-                                       d-flex
-                                       align-items-center
-                                       justify-content-center"
-                                style="
-                                    width: 46px;
-                                    height: 46px;
-                                    min-width: 46px;
-                                "
-                            >
+                            <div class="d-flex align-items-start gap-3">
 
-                                <i class="bi {{ service.icon }}"></i>
+                                <!-- SERVICE ICON -->
+                                <div
+                                    class="rounded-circle
+                                           bg-{{ service.color }}
+                                           text-white
+                                           d-flex
+                                           align-items-center
+                                           justify-content-center"
+                                    style="
+                                        width: 46px;
+                                        height: 46px;
+                                        min-width: 46px;
+                                    "
+                                >
+                                    <i class="bi {{ service.icon }}"></i>
+                                </div>
 
-                            </div>
+                                <!-- SERVICE DETAILS -->
+                                <div class="flex-grow-1">
 
+                                    <h6 class="mb-1">
+                                        {{ service.name }}
+                                    </h6>
 
-                            <div class="flex-grow-1">
+                                    <p class="text-muted small mb-3">
+                                        {{ service.description }}
+                                    </p>
 
-                                <h6 class="mb-1">
-                                    {{ service.name }}
-                                </h6>
+                                    {% if service.url %}
 
-                                <p class="text-muted small mb-3">
-                                    {{ service.description }}
-                                </p>
+                                        <a
+                                            href="{% url service.url %}"
+                                            class="btn btn-sm
+                                                   btn-outline-{{ service.color }}"
+                                        >
+                                            Open Service
+                                            <i class="bi bi-arrow-right"></i>
+                                        </a>
 
+                                    {% else %}
 
-                                {% if service.url %}
+                                        <span class="badge bg-secondary">
+                                            Coming Soon
+                                        </span>
 
-                                    <a
-                                        href="{% url service.url %}"
-                                        class="btn btn-sm
-                                               btn-outline-{{ service.color }}"
-                                    >
-                                        Open Service
-                                        <i class="bi bi-arrow-right"></i>
-                                    </a>
+                                    {% endif %}
 
-                                {% else %}
-
-                                    <span class="badge bg-secondary">
-                                        Coming Soon
-                                    </span>
-
-                                {% endif %}
+                                </div>
 
                             </div>
 
@@ -131,14 +122,136 @@
 
                 </div>
 
+            {% endif %}
+
+        {% empty %}
+
+            <div class="col-12">
+                <div class="alert alert-secondary mb-0">
+                    No security services are currently available.
+                </div>
             </div>
 
         {% endfor %}
 
     </div>
+    
+    <!-- GPS LOCATION PANEL -->
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
 
+            <div class="d-flex align-items-start gap-3 mb-3">
+                <div
+                    class="rounded-circle bg-success-subtle text-success
+                           d-flex align-items-center justify-content-center"
+                    style="width: 48px; height: 48px; min-width: 48px;"
+                >
+                    <i class="bi bi-geo-alt-fill fs-4"></i>
+                </div>
 
-    <!-- Emergency Notice -->
+                <div>
+                    <h5 class="mb-1">GPS Location &amp; Safety</h5>
+                    <p class="text-muted small mb-0">
+                        Get your current location to help identify
+                        where a security incident occurred.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alert alert-light border small">
+                <i class="bi bi-shield-lock me-1"></i>
+                Your browser will ask for permission before sharing
+                your location. This feature displays your coordinates
+                but does not submit them to the server.
+            </div>
+
+            <button
+                type="button"
+                id="getGpsLocation"
+                class="btn btn-success"
+            >
+                <i class="bi bi-crosshair me-1"></i>
+                Get My GPS Location
+            </button>
+
+            <button
+                type="button"
+                id="clearGpsLocation"
+                class="btn btn-outline-secondary ms-2"
+                hidden
+            >
+                Clear
+            </button>
+
+            <div
+                id="gpsStatus"
+                class="small mt-3"
+                role="status"
+                aria-live="polite"
+            >
+                Location has not been requested.
+            </div>
+
+            <div id="gpsResult" class="mt-3" hidden>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small text-muted">
+                            Latitude
+                        </label>
+                        <input
+                            type="text"
+                            id="gpsLatitude"
+                            class="form-control"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label class="form-label small text-muted">
+                            Longitude
+                        </label>
+                        <input
+                            type="text"
+                            id="gpsLongitude"
+                            class="form-control"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="col-12">
+                        <p class="small text-muted mb-2">
+                            <i class="bi bi-clock me-1"></i>
+                            Accuracy:
+                            <span id="gpsAccuracy">—</span> metres
+                        </p>
+
+                        <a
+                            id="gpsMapLink"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline-success"
+                        >
+                            <i class="bi bi-map me-1"></i>
+                            Open Location in Google Maps
+                        </a>
+
+                        <button
+                            type="button"
+                            id="copyGpsLocation"
+                            class="btn btn-outline-secondary ms-2"
+                        >
+                            <i class="bi bi-copy me-1"></i>
+                            Copy Coordinates
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- EMERGENCY NOTICE -->
     <div class="card border-0 shadow-sm mt-4">
 
         <div class="card-body">
@@ -149,19 +262,15 @@
                           text-danger fs-4"></i>
 
                 <div>
-
                     <h6 class="mb-1">
                         Emergency Situations
                     </h6>
 
                     <p class="text-muted small mb-0">
-
                         In an immediate emergency, citizens should
                         use the appropriate emergency response
                         channels available in their area.
-
                     </p>
-
                 </div>
 
             </div>
@@ -170,7 +279,6 @@
 
     </div>
 
-
 </div>
-
+<script src="{% static 'js/security-gps.js' %}"></script>
 {% endblock %}
